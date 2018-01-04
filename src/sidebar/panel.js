@@ -1,4 +1,5 @@
 /* exported TEXT_ALIGN_DIR */
+const startTime = Date.now();
 const UI_LANG = browser.i18n.getUILanguage();
 const RTL_LANGS = ['ar', 'fa', 'he'];
 const LANG_DIR = RTL_LANGS.includes(UI_LANG) ? 'rtl' : 'ltr';
@@ -100,6 +101,7 @@ ClassicEditor.create(document.querySelector('#editor'), {
             getLastSyncedTime();
             handleLocalContent(editor, content);
             document.getElementById('loading').style.display = 'none';
+            console.log("Start time: ", Date.now() - startTime);
             break;
           case 'text-change':
             ignoreNextLoadEvent = true;
